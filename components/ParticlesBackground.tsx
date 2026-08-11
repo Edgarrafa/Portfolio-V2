@@ -19,6 +19,11 @@ export type ParticlesBackgroundProps = {
 const ParticlesBackground = ({ className }: ParticlesBackgroundProps) => {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
+  /** TO DO:
+   * IT STILL NEEDS TO HAVE RESPONSIVE BEHAVIOR.
+   * MOBILE AND TABLET DEVICES SHOULD HAVE LESS PARTICLES AND SLOWER SPEEDS.
+   */
+
   useEffect(() => {
     // Check for reduced motion preference
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -37,8 +42,10 @@ const ParticlesBackground = ({ className }: ParticlesBackgroundProps) => {
       shape: {
         type: "circle", 
       },
-      color: {
-        value: ['#00d9ff', '#ff006e', '#b100ff'],
+      paint: {
+        color: {
+          value: ['#00d9ff', '#ff006e', '#b100ff'],
+        },
       },
       links: {
         color: '#00d9ff',
@@ -69,7 +76,7 @@ const ParticlesBackground = ({ className }: ParticlesBackgroundProps) => {
         value: { min: 1, max: 3 },
       },
       number: {
-        value: 60,
+        value: 80,
         density: {
           enable: true,
           height: 800,
@@ -99,15 +106,15 @@ const ParticlesBackground = ({ className }: ParticlesBackgroundProps) => {
       },
       modes: {
         grab: {
-          distance: 100,
+          distance: 200,
           links: {
             blink: false,
             consent: false,
-            opacity: 0.5,
+            opacity: 0.3,
           },
         },
         push: {
-          quantity: 4,
+          quantity: 2,
         }
       }
     },
