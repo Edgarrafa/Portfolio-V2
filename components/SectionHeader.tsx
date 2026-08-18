@@ -25,7 +25,8 @@ const SectionHeader = ({ title, subtitle }: SectionHeaderProps) => {
         className="text-center"
       >
         <p className="text-cyber-cyan font-mono text-sm mb-2">{subtitle}</p>
-        <h3 className="text-3xl md:text-5xl font-bold font-mono text-cyber-white">{title}</h3>
+        <h3 className="text-3xl md:text-5xl font-bold font-mono text-cyber-white mb-4">{title}</h3>
+        <div className="h-1 w-20 mx-auto bg-gradient-to-r from-cyber-cyan via-cyber-purple to-cyber-pink" aria-hidden="true"></div>
       </motion.div>
     </motion.div>
   );
