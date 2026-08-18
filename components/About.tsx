@@ -1,7 +1,5 @@
 "use client"
 
-import * as motion from "motion/react-client";
-import { fadeInUp, staggerContainer } from "@/lib/animations";
 import SectionHeader from "./SectionHeader";
 
 const About = () => {

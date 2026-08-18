@@ -1,8 +1,9 @@
-import Image from "next/image";
-
-import { cn } from "@/lib/utils";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import Experience from "@/components/Experience";
+import Projects from "@/components/Projects";
+import Skills from "@/components/Skills";
+import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
@@ -14,13 +15,13 @@ export default function Home() {
       {/* ABOUT */}
       <About />
       {/* EXPERIENCE */}
-      <section></section>
+      <Experience />
       {/* PROJECTS */}
-      <section></section>
+      <Projects />
       {/* SKILLS */}
-      <section></section>
+      <Skills />
       {/* CONTACT */}
-      <section></section>
+      <Contact />
       <footer>
       </footer>
     </div>
