@@ -1,6 +1,8 @@
 import Image from "next/image";
+
 import { cn } from "@/lib/utils";
-import ParticlesBackground from "@/components/ParticlesBackground";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
 
 export default function Home() {
   return (
@@ -8,11 +10,9 @@ export default function Home() {
       {/* NAVIGATION */}
       <nav></nav>
       {/* HERO */}
-      <section className="relative h-screen overflow-hidden">
-        <ParticlesBackground />
-      </section>
+      <Hero />
       {/* ABOUT */}
-      <section className=""></section>
+      <About />
       {/* EXPERIENCE */}
       <section></section>
       {/* PROJECTS */}
