@@ -1,4 +1,4 @@
-"use client"
+import { LuMail, LuDownload } from "react-icons/lu"
 
 import SectionHeader from "./SectionHeader";
 

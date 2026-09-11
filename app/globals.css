@@ -1,9 +1,7 @@
 @import "tailwindcss";
 
-/* ===== Cyberpunk Theme Variables ===== */
+/* ===== Theme ===== */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains);
 
@@ -15,49 +13,15 @@
   --color-cyber-white: #ffffff;
   --color-cyber-gray: #8892b0;
 
-  /* shadcn theme mapping */
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-}
-
-:root {
-  --radius: 0.5rem;
-  --background: #000000;
-  --foreground: #ffffff;
-  --card: rgba(0, 0, 0, 0.8);
-  --card-foreground: #ffffff;
-  --popover: #0a0a0a;
-  --popover-foreground: #ffffff;
-  --primary: #00d9ff;
-  --primary-foreground: #000000;
-  --secondary: #ff006e;
-  --secondary-foreground: #ffffff;
-  --muted: #1a1a2e;
-  --muted-foreground: #8892b0;
-  --accent: #b100ff;
-  --accent-foreground: #ffffff;
-  --destructive: #ff006e;
-  --border: rgba(0, 217, 255, 0.2);
-  --input: rgba(0, 217, 255, 0.1);
-  --ring: #00d9ff;
+  /* Used by the ui/ components */
+  --color-foreground: #ffffff;
+  --color-primary: #00d9ff;
+  --color-primary-foreground: #000000;
+  --color-accent: #b100ff;
+  --color-accent-foreground: #ffffff;
+  --color-border: rgba(0, 217, 255, 0.2);
+  --color-input: rgba(0, 217, 255, 0.1);
+  --color-ring: #00d9ff;
 }
 
 /* ===== Base Styles ===== */
@@ -72,7 +36,6 @@
 
   body {
     @apply bg-cyber-black text-cyber-white antialiased;
-    font-feature-settings: "liga" 1, "calt" 1;
   }
 
   ::selection {
@@ -98,4 +61,88 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #00d9ff, #ff006e);
+}
+
+/* ===== Glitch Text ===== */
+.glitch {
+  position: relative;
+  animation: glitch-skew 1s infinite linear alternate-reverse;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+}
+
+.glitch::before {
+  translate: 2px 0;
+  text-shadow: -2px 0 #ff006e;
+  animation: glitch-before 3s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  translate: -2px 0;
+  text-shadow: 2px 0 #00d9ff;
+  animation: glitch-after 2s infinite linear alternate-reverse;
+}
+
+/* Each step shows a thin horizontal slice: inset(top 0 bottom) */
+@keyframes glitch-before {
+  0% { clip-path: inset(2% 0 95%); }
+  10% { clip-path: inset(15% 0 85%); }
+  20% { clip-path: inset(10% 0 80%); }
+  30% { clip-path: inset(1% 0 98%); }
+  40% { clip-path: inset(33% 0 67%); }
+  50% { clip-path: inset(44% 0 56%); }
+  60% { clip-path: inset(20% 0 50%); }
+  70% { clip-path: inset(70% 0 30%); }
+  80% { clip-path: inset(80% 0 20%); }
+  90% { clip-path: inset(50% 0 45%); }
+  100% { clip-path: inset(70% 0 20%); }
+}
+
+@keyframes glitch-after {
+  0% { clip-path: inset(25% 0 70%); }
+  15% { clip-path: inset(3% 0 97%); }
+  22% { clip-path: inset(5% 0 80%); }
+  31% { clip-path: inset(20% 0 80%); }
+  45% { clip-path: inset(40% 0 60%); }
+  51% { clip-path: inset(52% 0 41%); }
+  63% { clip-path: inset(60% 0 40%); }
+  76% { clip-path: inset(75% 0 25%); }
+  81% { clip-path: inset(40% 0 35%); }
+  94% { clip-path: inset(45% 0 50%); }
+  100% { clip-path: inset(14% 0 67%); }
+}
+
+@keyframes glitch-skew {
+  20%, 22%, 50%, 52% { transform: none; }
+  21% { transform: skew(1deg); }
+  51% { transform: skew(-1deg); }
+}
+
+/* ===== Neon Button ===== */
+.neon-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.neon-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(0, 217, 255, 0.4), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.neon-button:hover::before {
+  transform: translateX(100%);
+}
+
+.neon-button:hover {
+  box-shadow: 0 0 10px #00d9ff, 0 0 20px #00d9ff, 0 0 30px rgba(0, 217, 255, 0.5);
 }
