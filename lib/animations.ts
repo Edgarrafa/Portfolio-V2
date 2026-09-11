@@ -24,3 +24,33 @@ export const fadeInUp: Variants = {
     }
   }
 }
+
+export const fadeInRight: Variants = {
+  initial: {
+    opacity: 0,
+    x: 30
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      ease: "easeOut",
+      duration: 0.5
+    }
+  }
+}
+
+export const fadeInLeft: Variants = {
+  initial: {
+    opacity: 0,
+    x: -30
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      ease: "easeOut",
+      duration: 0.5
+    }
+  }
+}

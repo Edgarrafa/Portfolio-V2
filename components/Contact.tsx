@@ -1,6 +1,6 @@
 import { LuMail, LuDownload } from "react-icons/lu"
 
-import SectionHeader from "./SectionHeader";
+import SectionHeader from "./ui/SectionHeader";
 
 const Contact = () => {
   return (
