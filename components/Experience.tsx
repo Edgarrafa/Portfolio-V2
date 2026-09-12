@@ -91,7 +91,7 @@ const Experience = () => {
   return (
     <section className="py-40">
       <SectionHeader title="Experience" subtitle="// CAREER.HISTORY" />
-      <div className="mx-auto px-4 md:px-6">
+      <div className="container mx-auto px-4 md:px-6">
         <div className="relative">
           <div className="timeline-line block" aria-hidden="true" />
           <div className="space-y-12 md:space-y-0">

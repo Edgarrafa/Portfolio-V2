@@ -37,7 +37,7 @@ const ProjectCard = ({ title, description, technologies, githubHref, externalHre
             </span>
           </div>
 
-          <ProjectCardData title={title} description={description} technologies={technologies} />
+          <ProjectCardData title={title} description={description} technologies={technologies} isFeatured />
 
           <div className="flex items-center gap-3 pt-2 border-t border-white/5">
             {githubHref && (

@@ -18,7 +18,7 @@ const SectionHeader = ({ title, subtitle }: SectionHeaderProps) => {
         once: true,
         margin: "-100px"
       }}
-      className="mx-auto px-4 md:px-6 mb-16"
+      className="container mx-auto px-4 md:px-6 mb-16"
     >
       <motion.div
         variants={fadeInUp}

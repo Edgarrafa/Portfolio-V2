@@ -83,7 +83,7 @@ const Projects = () => {
   const featuredProjects = projects.filter((project) => project.featured);
   const noteworthyProjects = projects.filter((project) => !project.featured);
   const centerFeatured = featuredProjects.length <= 2;
-  const centerOther = noteworthyProjects.length <= 2;
+  const centerNoteworthy = noteworthyProjects.length <= 2;
   
   const featuredGridClass = centerFeatured
     ? featuredProjects.length === 2
@@ -91,7 +91,7 @@ const Projects = () => {
       : 'grid grid-cols-1 gap-6 md:gap-8 max-w-3xl mx-auto place-items-center'
     : 'grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8';
   
-  const noteworthyGridClass = centerOther
+  const noteworthyGridClass = centerNoteworthy
     ? noteworthyProjects.length === 2
       ? 'grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto place-items-center'
       : 'grid grid-cols-1 gap-4 md:gap-6 max-w-2xl mx-auto place-items-center'
@@ -106,11 +106,11 @@ const Projects = () => {
         whileInView="animate"
         viewport={{ once: true, margin: '-50px' }}
         variants={staggerContainer}
-        className="mx-auto px-4 md:px-6 mb-20"
+        className="container mx-auto px-4 md:px-6 mb-20"
       >
         <div className={featuredGridClass}>
           {featuredProjects.map((project) => (
-            <ProjectCard key={project.title} {...project} />
+            <ProjectCard key={project.title} isFeatured isCentered={centerFeatured} {...project} />
           ))}
         </div>
       </motion.div>
@@ -121,7 +121,7 @@ const Projects = () => {
           whileInView="animate"
           viewport={{ once: true, margin: '-50px' }}
           variants={staggerContainer}
-          className="mx-auto px-4 md:px-6"
+          className="container mx-auto px-4 md:px-6"
         >
           <motion.h3
             variants={fadeInUp}
@@ -132,7 +132,7 @@ const Projects = () => {
 
           <div className={noteworthyGridClass}>
             {noteworthyProjects.map((project) => (
-              <NoteworthyProjectCard key={project.title} {...project} />
+              <NoteworthyProjectCard key={project.title} isCentered={centerNoteworthy} {...project} />
             ))}
           </div>
         </motion.div>
