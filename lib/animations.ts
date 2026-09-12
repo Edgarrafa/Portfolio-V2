@@ -28,7 +28,7 @@ export const fadeInUp: Variants = {
 export const fadeInRight: Variants = {
   initial: {
     opacity: 0,
-    x: 30
+    x: 50
   },
   animate: {
     opacity: 1,
@@ -43,7 +43,7 @@ export const fadeInRight: Variants = {
 export const fadeInLeft: Variants = {
   initial: {
     opacity: 0,
-    x: -30
+    x: -50
   },
   animate: {
     opacity: 1,

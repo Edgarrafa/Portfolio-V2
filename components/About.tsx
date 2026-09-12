@@ -21,6 +21,7 @@ const About = () => {
             whileInView="animate"
             initial="initial"
             variants={fadeInLeft}
+            viewport={{ once: true }}
             className="lg:col-span-5"
           >
             <div className="relative max-w-sm mx-auto lg:mx-0">
@@ -40,6 +41,7 @@ const About = () => {
             whileInView="animate"
             initial="initial"
             variants={staggerContainer}
+            viewport={{ once: true }}
             className="lg:col-span-7"
           >
             <div className="space-y-6">
@@ -47,6 +49,7 @@ const About = () => {
                 whileInView="animate"
                 initial="initial"
                 variants={fadeInRight}
+                viewport={{ once: true }}
                 className="text-cyber-gray text-base md:text-lg leading-relaxed"
               >
                 I'm a full-stack developer with a passion for crafting immersive digital experiences. I specialize in building high-performance web applications using modern technologies like React, Next.js, and Node.js.
@@ -55,6 +58,7 @@ const About = () => {
                 whileInView="animate"
                 initial="initial"
                 variants={fadeInRight}
+                viewport={{ once: true }}
                 className="text-cyber-gray text-base md:text-lg leading-relaxed"
               >
                 With a keen eye for optimization and a love for clean code, I transform complex problems into elegant solutions. I thrive in the intersection of pragmatism and technology.
@@ -63,6 +67,7 @@ const About = () => {
                 whileInView="animate"
                 initial="initial"
                 variants={fadeInRight}
+                viewport={{ once: true }}
                 className="text-cyber-gray text-base md:text-lg leading-relaxed"
               >
                 When I'm not coding, you'll find me exploring new technologies, watching Anime, or gaming. Let's connect and build something amazing together!

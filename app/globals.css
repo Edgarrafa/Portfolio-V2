@@ -159,3 +159,19 @@
 .neon-button:hover {
   box-shadow: 0 0 10px #00d9ff, 0 0 20px #00d9ff, 0 0 30px rgba(0, 217, 255, 0.5);
 }
+
+/* ===== Timeline ===== */
+.timeline-line {
+  position: absolute;
+  left: 1.625rem;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, #00d9ff, #b100ff, #ff006e);
+}
+
+@media (min-width: 768px) {
+  .timeline-line {
+    left: 50%;
+  }
+}

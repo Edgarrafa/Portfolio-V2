@@ -35,6 +35,7 @@ const Hero = () => {
         whileInView="animate"
         initial="initial"
         variants={staggerContainer}
+        viewport={{ once: true }}
         className="relative z-10 mx-auto px-4 md:px-6 text-center flex flex-col justify-center items-center h-full"
       >
         <motion.p
