@@ -6,9 +6,10 @@ import { fadeInUp, staggerContainer } from "@/lib/animations";
 export type SectionHeaderProps = {
   title: string;
   subtitle: string;
+  text?: string
 };
 
-const SectionHeader = ({ title, subtitle }: SectionHeaderProps) => {
+const SectionHeader = ({ title, subtitle, text }: SectionHeaderProps) => {
   return (
     <motion.div
       whileInView="animate"
@@ -27,6 +28,7 @@ const SectionHeader = ({ title, subtitle }: SectionHeaderProps) => {
         <p className="text-cyber-cyan font-mono text-sm mb-2">{subtitle}</p>
         <h3 className="text-3xl md:text-5xl font-bold font-mono text-cyber-white mb-4">{title}</h3>
         <div className="h-1 w-20 mx-auto bg-gradient-to-r from-cyber-cyan via-cyber-purple to-cyber-pink" aria-hidden="true"></div>
+        {text && <p className="text-cyber-gray max-w-xl mx-auto mt-6">{text}</p>}
       </motion.div>
     </motion.div>
   );
