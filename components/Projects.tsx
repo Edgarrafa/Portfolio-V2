@@ -98,7 +98,7 @@ const Projects = () => {
     : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6';
 
   return (
-    <section className="py-40">
+    <section className="py-20">
       <SectionHeader title="Featured Work" subtitle="// PROJECTS.SHOWCASE" />
       
       <motion.div
@@ -110,7 +110,7 @@ const Projects = () => {
       >
         <div className={featuredGridClass}>
           {featuredProjects.map((project) => (
-            <ProjectCard key={project.title} isFeatured isCentered={centerFeatured} {...project} />
+            <ProjectCard key={project.title} isCentered={centerFeatured} {...project} />
           ))}
         </div>
       </motion.div>

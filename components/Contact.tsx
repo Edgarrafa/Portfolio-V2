@@ -4,7 +4,7 @@ import SectionHeader from "./ui/SectionHeader";
 
 const Contact = () => {
   return (
-    <section className="py-40">
+    <section className="py-20">
       <SectionHeader title="Get in Touch" subtitle="// CONTACT.INIT" />
     </section>
   );
