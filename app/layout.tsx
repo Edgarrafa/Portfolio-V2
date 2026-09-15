@@ -17,7 +17,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'EDGAR_GALVAN | Full-Stack Developer Portfolio',
   description:
-    'Full-stack developer specializing in React, Next.js, Node.js, and modern web technologies. Building digital experiences with cutting-edge technology.',
+    'Full-stack software engineer with 6+ years building large-scale web platforms with React, Next.js and TypeScript. Open to full-time roles.',
   keywords: [
     'developer',
     'portfolio',
@@ -34,14 +34,14 @@ export const metadata: Metadata = {
     locale: 'en_US',
     title: 'EDGAR_GALVAN | Full-Stack Developer Portfolio',
     description:
-      'Full-stack developer specializing in React, Next.js, Node.js, and modern web technologies.',
+      'Full-stack software engineer with 6+ years building large-scale web platforms with React, Next.js and TypeScript. Open to full-time roles.',
     siteName: 'EDGAR_GALVAN Portfolio',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'EDGAR_GALVAN | Full-Stack Developer Portfolio',
     description:
-      'Full-stack developer specializing in React, Next.js, Node.js, and modern web technologies.',
+      'Full-stack software engineer with 6+ years building large-scale web platforms with React, Next.js and TypeScript. Open to full-time roles.',
   },
   robots: {
     index: true,

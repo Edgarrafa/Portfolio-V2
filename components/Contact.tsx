@@ -10,7 +10,7 @@ import { fadeInUp } from "@/lib/animations";
 import Button from "./ui/Button";
 import { PersonalInfo } from "@/lib/types";
 
-const socialIcons: Record<string, typeof FaGithub> = {
+export const socialIcons: Record<string, typeof FaGithub> = {
   github: FaGithub,
   linkedin: FaLinkedin,
 };
@@ -73,7 +73,7 @@ const Contact = () => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
             </span>
-            <span className="font-mono text-xs text-green-400">Open to work</span>
+            <span className="font-mono text-xs text-green-400">Open to full-time roles</span>
           </div>
         </div>
 

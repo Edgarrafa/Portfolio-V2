@@ -3,7 +3,7 @@
 import ExperienceCard from "./ui/ExperienceCard";
 import SectionHeader from "./ui/SectionHeader";
 
-const experiences = [
+export const experiences = [
   {
     title: "Software Engineer II",
     company: "Meltwater",
