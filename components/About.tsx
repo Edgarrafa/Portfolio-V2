@@ -9,7 +9,7 @@ import AboutStat from "./ui/AboutStat";
 
 const About = () => {
   return (
-    <section className="py-20 relative">
+    <section id="about" className="py-20 relative">
       <SectionHeader title="Who I Am" subtitle="// ABOUT.ME" />
       <div
         className="container mx-auto px-4 md:px-6"

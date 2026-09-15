@@ -16,3 +16,8 @@ export interface PersonalInfo {
   socialLinks: SocialLink[];
   resumeUrl?: string;
 }
+
+export interface NavItem {
+  href: string;
+  label: string;
+}

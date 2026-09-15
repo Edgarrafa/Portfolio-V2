@@ -5,12 +5,13 @@ import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import Navigation from "@/components/ui/Navbar";
 
 export default function Home() {
   return (
     <div className="">
       {/* NAVIGATION */}
-      <nav></nav>
+      <Navigation />
       {/* HERO */}
       <Hero />
       {/* ABOUT */}

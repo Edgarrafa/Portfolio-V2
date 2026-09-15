@@ -52,7 +52,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="py-20">
+    <section id="contact" className="py-20">
       <SectionHeader title="Let's Talk" subtitle="// CONTACT.INIT" text="Looking for an engineer to join your team? Feel free to reach out. I'm always open to discussing new opportunities."/>
       <motion.div
         variants={fadeInUp}

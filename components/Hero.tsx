@@ -29,7 +29,7 @@ const Hero = () => {
   }, [fullText]);
 
   return (
-    <section className="relative h-screen overflow-hidden">
+    <section id="home" className="relative h-screen overflow-hidden">
       <ParticlesBackground />
       <motion.div
         whileInView="animate"
