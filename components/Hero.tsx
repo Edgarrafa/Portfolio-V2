@@ -1,16 +1,19 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import * as motion from "motion/react-client";
 import { FaGithub } from "react-icons/fa6";
 
-import ParticlesBackground from "./ui/ParticlesBackground";
 import { fadeInUp, scaleIn, staggerContainer } from "@/lib/animations";
 import HeroSocialLink from "./ui/HeroSocialLink";
 import ProfileInfoCard from "./ui/ProfileInfoCard";
 import { personalInfo, socialIcons } from "./Contact";
 import { experiences } from "./Experience";
+
+// Decorative and client-only: keep the particles engine out of the initial bundle
+const ParticlesBackground = dynamic(() => import("./ui/ParticlesBackground"), { ssr: false });
 
 const Highlight = ({ children }: { children: React.ReactNode }) => (
   <span className="text-cyber-cyan">{children}</span>
