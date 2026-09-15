@@ -4,8 +4,8 @@ const Footer = () => {
       <div className="container mx-auto px-4 md:px-6 text-center">
         <p className="text-cyber-gray text-sm font-mono">
           <span className="text-cyber-cyan">{'<'}</span>
-          Designed with
-          <span className="text-cyber-pink">{' ♥'}</span>
+          {' Designed & Built with '}
+          <span className="text-cyber-pink">{'♥'}</span>
           {' '}
           <span className="text-cyber-cyan">{'/>'}</span>
         </p>

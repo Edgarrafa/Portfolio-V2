@@ -1,11 +1,12 @@
-import { fadeInUp, staggerContainer } from "@/lib/animations";
+import { fadeInUp, staggerContainer, staggerContainerFast } from "@/lib/animations";
 import { Skill } from "@/lib/types";
 
 import * as motion from "motion/react-client";
 import SkillLi from "./Skill";
 
 type SkillCategoryProps = {
-  category: string;
+  id: string;
+  label: string;
   skills: Skill[];
   styles: {
     dotClass: string;
@@ -15,7 +16,7 @@ type SkillCategoryProps = {
   };
 };
 
-const SkillCategory = ({ category, skills, styles }: SkillCategoryProps) => {
+const SkillCategory = ({ id, label, skills, styles }: SkillCategoryProps) => {
   return (
     <motion.div
       initial="initial"
@@ -23,7 +24,7 @@ const SkillCategory = ({ category, skills, styles }: SkillCategoryProps) => {
       viewport={{ once: true, margin: '-50px' }}
       variants={staggerContainer}
       role="region"
-      aria-labelledby={`${category}-heading`}
+      aria-labelledby={`${id}-heading`}
     >
       <motion.div
         variants={fadeInUp}
@@ -33,17 +34,17 @@ const SkillCategory = ({ category, skills, styles }: SkillCategoryProps) => {
           className={`w-3 h-3 rounded-full ${styles.dotClass}`}
           aria-hidden="true"
         />
-        <h3 id={`${category}-heading`} className="text-xl md:text-2xl font-bold font-mono text-cyber-white">
-          {category}
+        <h3 id={`${id}-heading`} className="text-xl md:text-2xl font-bold font-mono text-cyber-white">
+          {label}
         </h3>
         <div className={`flex-1 h-px bg-gradient-to-r ${styles.lineClass}`} aria-hidden="true" />
       </motion.div>
 
       <motion.ul
-        variants={staggerContainer}
+        variants={staggerContainerFast}
         className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4"
         role="list"
-        aria-label={category}
+        aria-label={label}
       >
         {skills.map((skill) => <SkillLi key={skill.name} name={skill.name} textClass={styles.textClass} iconClass={styles.iconClass} />)}
       </motion.ul>

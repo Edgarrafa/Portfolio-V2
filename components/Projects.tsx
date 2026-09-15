@@ -98,8 +98,8 @@ const Projects = () => {
     : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6';
 
   return (
-    <section id="projects" className="py-20">
-      <SectionHeader title="Featured Work" subtitle="// PROJECTS.SHOWCASE" />
+    <section id="projects" className="py-20 md:py-32 relative" aria-labelledby="projects-heading">
+      <SectionHeader id="projects-heading" title="Featured Work" subtitle="// PROJECTS.SHOWCASE" />
       
       <motion.div
         initial="initial"

@@ -191,3 +191,105 @@
     left: 50%;
   }
 }
+
+/* ===== Scanlines Overlay ===== */
+.scanlines {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow: hidden;
+  pointer-events: none;
+  background: repeating-linear-gradient(rgba(0, 0, 0, 0.1) 0 1px, transparent 1px 2px);
+}
+
+.scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 200%;
+  background: linear-gradient(transparent, rgba(0, 217, 255, 0.02), transparent);
+  animation: scanline-move 8s linear infinite;
+}
+
+@keyframes scanline-move {
+  from { transform: translateY(-50%); }
+  to { transform: none; }
+}
+
+/* ===== Neon Glow (utilities, so hover: works) ===== */
+@utility text-glow-cyan {
+  text-shadow: 0 0 10px #00d9ff, 0 0 20px #00d9ff, 0 0 40px #00d9ff;
+}
+
+@utility border-glow-cyan {
+  box-shadow:
+    0 0 5px #00d9ff,
+    0 0 10px #00d9ff,
+    0 0 20px rgba(0, 217, 255, 0.5),
+    inset 0 0 5px rgba(0, 217, 255, 0.1);
+}
+
+/* ===== Cyber Corners ===== */
+.cyber-clip {
+  clip-path: polygon(
+    0 10px, 10px 0,
+    calc(100% - 10px) 0, 100% 10px,
+    100% calc(100% - 10px), calc(100% - 10px) 100%,
+    10px 100%, 0 calc(100% - 10px)
+  );
+}
+
+/* ===== Skip to Content ===== */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10000;
+  padding: 1rem 2rem;
+  background: #00d9ff;
+  color: #000000;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 0 0 8px 8px;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ===== Decorative Backgrounds ===== */
+.cyber-grid {
+  background-image:
+    linear-gradient(rgba(0, 217, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 217, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* ===== Reduced Motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .glitch::before,
+  .glitch::after,
+  .scanlines::after {
+    display: none;
+  }
+}

@@ -36,6 +36,13 @@ const skills: Skill[] = [
   { name: 'Jest', category: 'tools' },
 ];
 
+const categoryLabels: Record<SkillCategoryType, string> = {
+  frontend: 'Frontend',
+  backend: 'Backend',
+  tools: 'Tools & DevOps',
+  other: 'Other',
+};
+
 const categoryStyles: Record<SkillCategoryType, {
   dotClass: string;
   lineClass: string;
@@ -79,8 +86,8 @@ const Skills = () => {
   }, {} as Record<SkillCategoryType, Skill[]>);
 
   return (
-    <section id="skills" className="py-20">
-      <SectionHeader title="Skills & Technologies" subtitle="// TECH.STACK" />
+    <section id="skills" className="py-20 md:py-32 relative" aria-labelledby="skills-heading">
+      <SectionHeader id="skills-heading" title="Skills & Technologies" subtitle="// TECH.STACK" />
       <div className="container mx-auto px-4 md:px-6">
         <div className="space-y-12">
           {categories.map(category => {
@@ -90,12 +97,16 @@ const Skills = () => {
             const styles = categoryStyles[category];
             return (
               <div key={category}>
-                <SkillCategory category={category.toUpperCase()} skills={categorySkills} styles={styles} />
+                <SkillCategory id={category} label={categoryLabels[category]} skills={categorySkills} styles={styles} />
               </div>
             );
           })}
         </div>
       </div>
+
+      {/* Background Decorations */}
+      <div className="absolute top-1/4 left-0 w-64 h-64 bg-cyber-cyan/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
+      <div className="absolute bottom-1/4 right-0 w-64 h-64 bg-cyber-pink/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
     </section>
   );
 }

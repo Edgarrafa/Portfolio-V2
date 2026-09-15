@@ -6,7 +6,7 @@ import * as motion from "motion/react-client";
 import { FaGithub } from "react-icons/fa6";
 
 import ParticlesBackground from "./ui/ParticlesBackground";
-import { fadeInRight, fadeInUp, staggerContainer } from "@/lib/animations";
+import { fadeInUp, scaleIn, staggerContainer } from "@/lib/animations";
 import HeroSocialLink from "./ui/HeroSocialLink";
 import ProfileInfoCard from "./ui/ProfileInfoCard";
 import { personalInfo, socialIcons } from "./Contact";
@@ -16,10 +16,20 @@ const Highlight = ({ children }: { children: React.ReactNode }) => (
   <span className="text-cyber-cyan">{children}</span>
 );
 
+const fullText = "Full-Stack Developer | Building Digital Futures";
+
+const latestRole = experiences[0];
+const facts = [
+  { label: "Experience", value: "6+ years", color: "text-cyber-cyan" },
+  { label: "Latest Role", value: `${latestRole.title} @ ${latestRole.company}`, color: "text-cyber-pink" },
+  { label: "Core Stack", value: "React · TypeScript · Next.js", color: "text-cyber-purple" },
+  { label: "Status", value: "Open to full-time roles · Available immediately", color: "text-green-400", live: true },
+];
+
+const bioClass = "text-cyber-gray text-base md:text-lg leading-relaxed";
+
 const Hero = () => {
   const [typedText, setTypedText] = useState('');
-  const fullText = "Full-Stack Developer | Building Digital Futures";
-  const latestRole = experiences[0];
 
   useEffect(() => {
     let currentIndex = 0;
@@ -33,83 +43,83 @@ const Hero = () => {
     }, 50);
 
     return () => clearInterval(typingInterval);
-  }, [fullText]);
+  }, []);
 
   return (
-    <section id="home" className="relative min-h-screen overflow-hidden flex items-center pt-28 pb-16">
-      <ParticlesBackground />
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center overflow-hidden pt-28 pb-16"
+      aria-labelledby="hero-name"
+    >
+      <ParticlesBackground className="absolute inset-0 z-0" />
 
-      {/* Screen Corner Brackets */}
-      <div className="hidden md:block absolute inset-8 pointer-events-none" aria-hidden="true">
-        <span className="absolute top-0 left-0 w-20 h-20 border-t border-l border-cyber-cyan/30" />
-        <span className="absolute top-0 right-0 w-20 h-20 border-t border-r border-cyber-cyan/30" />
-        <span className="absolute bottom-0 left-0 w-20 h-20 border-b border-l border-cyber-pink/30" />
-        <span className="absolute bottom-0 right-0 w-20 h-20 border-b border-r border-cyber-pink/30" />
-      </div>
+      {/* Cyber Grid Background */}
+      <div className="absolute inset-0 cyber-grid z-0" aria-hidden="true" />
 
       <div className="relative z-10 container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Intro Text */}
           <motion.div
-            whileInView="animate"
-            initial="initial"
             variants={staggerContainer}
-            viewport={{ once: true }}
+            initial="initial"
+            animate="animate"
             className="lg:col-span-7 text-center lg:text-left"
           >
             <motion.p
-              className="text-cyber-cyan font-mono text-sm md:text-base mb-4"
               variants={fadeInUp}
+              className="text-cyber-cyan font-mono text-sm md:text-base mb-4"
             >
               {'// INITIALIZING DEVELOPER PROFILE...'}
             </motion.p>
-            <motion.div
-              variants={fadeInUp}
-              className="mb-4"
-            >
+
+            <motion.div variants={fadeInUp} className="mb-4">
               <h1
-                className="glitch text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold font-mono text-cyber-white tracking-tighter"
-                data-text="EDGAR_GALVAN"
-              >EDGAR_GALVAN</h1>
+                id="hero-name"
+                data-text={personalInfo.name}
+                className="glitch text-4xl md:text-6xl lg:text-7xl font-bold font-mono text-cyber-white tracking-tighter"
+              >
+                {personalInfo.name}
+              </h1>
             </motion.div>
+
             <motion.div
               variants={fadeInUp}
-              className="min-h-14 md:min-h-16 flex items-center justify-center lg:justify-start mb-6"
+              className="min-h-12 md:min-h-14 flex items-center justify-center lg:justify-start mb-6"
             >
-              <p className="text-lg md:text-2xl text-cyber-gray font-mono">
+              <p className="text-lg md:text-xl lg:text-2xl text-cyber-gray font-mono">
                 {typedText}
                 <span className="inline-block w-0.5 h-5 md:h-7 bg-cyber-cyan ml-1 align-middle animate-pulse" />
               </p>
             </motion.div>
+
             <motion.div
               variants={fadeInUp}
-              className="h-1 w-20 mx-auto lg:mx-0 mb-8 bg-gradient-to-r from-cyber-cyan via-cyber-purple to-cyber-pink"
+              className="w-20 h-1 bg-gradient-to-r from-cyber-cyan via-cyber-purple to-cyber-pink mx-auto lg:mx-0 mb-8"
               aria-hidden="true"
             />
 
-            <motion.div
-              variants={fadeInUp}
-              className="space-y-4 text-cyber-gray text-base md:text-lg leading-relaxed mb-10"
-            >
-              <p>
+            {/* Bio */}
+            <div className="space-y-4 mb-10">
+              <motion.p variants={fadeInUp} className={bioClass}>
                 I&apos;m a <Highlight>full-stack developer</Highlight> with a passion for crafting immersive <Highlight>digital experiences</Highlight>. I specialize in building high-performance <Highlight>web applications</Highlight> using modern technologies like <Highlight>React</Highlight>, <Highlight>Next.js</Highlight>, and <Highlight>Node.js</Highlight>.
-              </p>
-              <p>
+              </motion.p>
+              <motion.p variants={fadeInUp} className={bioClass}>
                 With a keen eye for optimization and a love for <Highlight>clean code</Highlight>, I transform complex problems into elegant solutions. I thrive in the intersection of pragmatism and technology.
-              </p>
-              <p>
+              </motion.p>
+              <motion.p variants={fadeInUp} className={bioClass}>
                 When I&apos;m not coding, you&apos;ll find me exploring new technologies, watching Anime, or gaming.
-              </p>
-            </motion.div>
+              </motion.p>
+            </div>
 
-            <motion.div
+            {/* Quick Facts */}
+            <motion.dl
               variants={fadeInUp}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10 text-left"
             >
-              <ProfileInfoCard label="Experience" value="6+ years" labelColorClass="text-cyber-cyan" />
-              <ProfileInfoCard label="Latest Role" value={`${latestRole.title} @ ${latestRole.company}`} labelColorClass="text-cyber-pink" />
-              <ProfileInfoCard label="Core Stack" value="React · TypeScript · Next.js" labelColorClass="text-cyber-purple" />
-              <ProfileInfoCard label="Status" value="Open to full-time roles · Available immediately" labelColorClass="text-green-400" showStatusDot />
-            </motion.div>
+              {facts.map(({ label, value, color, live }) => (
+                <ProfileInfoCard key={label} label={label} value={value} labelColorClass={color} showStatusDot={live} />
+              ))}
+            </motion.dl>
 
             <motion.ul
               variants={fadeInUp}
@@ -128,27 +138,21 @@ const Hero = () => {
             </motion.ul>
           </motion.div>
 
+          {/* Avatar */}
           <motion.div
-            whileInView="animate"
+            variants={scaleIn}
             initial="initial"
-            variants={fadeInRight}
-            viewport={{ once: true }}
+            animate="animate"
             className="lg:col-span-5 order-first lg:order-last"
           >
-            <div className="relative max-w-xs sm:max-w-sm mx-auto p-3">
-              {/* Avatar Corner Brackets */}
-              <span className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-cyber-cyan" aria-hidden="true" />
-              <span className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-cyber-cyan" aria-hidden="true" />
-              <span className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-cyber-pink" aria-hidden="true" />
-              <span className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-cyber-pink" aria-hidden="true" />
-
+            <div className="relative max-w-[16rem] lg:max-w-sm mx-auto lg:mr-0 lg:ml-auto">
               <div className="relative aspect-square rounded-lg overflow-hidden border border-cyber-cyan/30 bg-cyber-black">
                 <Image
                   src="/cyberpunk-avatar.jpeg"
                   alt="Edgar Galvan - Full-Stack Software Engineer"
                   fill
                   className="object-cover"
-                  sizes="(max-width: 640px) 320px, 384px"
+                  sizes="(max-width: 1024px) 256px, 384px"
                   loading="eager"
                   fetchPriority="high"
                 />
@@ -157,15 +161,27 @@ const Hero = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-cyber-black/60 via-transparent to-cyber-cyan/10" />
               </div>
 
-              <p className="mt-5 mb-1 text-center font-mono text-xs tracking-widest text-cyber-cyan/80">
-                {'// ID: EDGAR_GALVAN'}
+              {/* HUD Frame Corners */}
+              <div className="absolute -top-3 -left-3 w-8 h-8 border-l-2 border-t-2 border-cyber-cyan" aria-hidden="true" />
+              <div className="absolute -top-3 -right-3 w-8 h-8 border-r-2 border-t-2 border-cyber-cyan" aria-hidden="true" />
+              <div className="absolute -bottom-3 -left-3 w-8 h-8 border-l-2 border-b-2 border-cyber-pink" aria-hidden="true" />
+              <div className="absolute -bottom-3 -right-3 w-8 h-8 border-r-2 border-b-2 border-cyber-pink" aria-hidden="true" />
+
+              <p className="mt-6 text-center font-mono text-xs text-cyber-cyan/70 tracking-widest">
+                {`// ID: ${personalInfo.name}`}
               </p>
             </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Background Decorations */}
+      {/* Decorative Corner Elements */}
+      <div className="absolute top-20 left-4 w-20 h-20 border-l-2 border-t-2 border-cyber-cyan/20" aria-hidden="true" />
+      <div className="absolute top-20 right-4 w-20 h-20 border-r-2 border-t-2 border-cyber-cyan/20" aria-hidden="true" />
+      <div className="absolute bottom-20 left-4 w-20 h-20 border-l-2 border-b-2 border-cyber-pink/20" aria-hidden="true" />
+      <div className="absolute bottom-20 right-4 w-20 h-20 border-r-2 border-b-2 border-cyber-pink/20" aria-hidden="true" />
+
+      {/* Background Glows */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-cyber-cyan/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyber-purple/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
     </section>

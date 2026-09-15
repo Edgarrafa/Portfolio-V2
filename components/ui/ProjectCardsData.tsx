@@ -8,18 +8,39 @@ export type ProjectCardDataProps = {
 };
 
 const ProjectCardData = ({ title, description, technologies, isFeatured }: ProjectCardDataProps) => {
+  if (!isFeatured) {
+    return (
+      <>
+        <h4 className="text-lg font-bold text-cyber-white mb-2 group-hover:text-cyber-cyan transition-colors">
+          {title}
+        </h4>
+        <p className="text-cyber-gray text-sm mb-4 line-clamp-2">
+          {description}
+        </p>
+
+        <div className="flex flex-wrap gap-2">
+          {technologies.slice(0, 4).map((tech) => (
+            <span key={tech} className="text-xs text-cyber-gray font-mono">
+              {tech}
+            </span>
+          ))}
+        </div>
+      </>
+    );
+  }
+
   return (
       <>
         <div className="flex-1">
           <h3 className="text-xl font-bold text-cyber-white mb-2 group-hover:text-cyber-cyan transition-colors">
             {title}
           </h3>
-          <p className={`text-cyber-gray text-sm mb-4 ${isFeatured ? 'line-clamp-3' : 'line-clamp-2'} leading-relaxed`}>
+          <p className="text-cyber-gray text-sm mb-4 line-clamp-3 leading-relaxed">
             {description}
           </p>
         </div>
 
-        <div className={`flex flex-wrap gap-2 ${isFeatured ? 'mb-5' : 'mb-0'}`}>
+        <div className="flex flex-wrap gap-2 mb-5">
           {technologies.map((tech) => (
             <Badge
               key={tech}

@@ -8,11 +8,12 @@ type ProfileInfoCardProps = {
   className?: string;
 };
 
+// Renders a dt/dd pair, so it must be placed inside a <dl>
 const ProfileInfoCard = ({ label, value, labelColorClass, showStatusDot, className }: ProfileInfoCardProps) => {
   return (
-    <div className={cn("glass cyber-clip rounded-lg p-4 text-left", className)}>
-      <p className={cn("font-mono text-xs uppercase tracking-widest mb-1", labelColorClass)}>{`> ${label}`}</p>
-      <p className="flex items-center gap-2 font-semibold text-cyber-white">
+    <div className={cn("glass cyber-clip px-4 py-3", className)}>
+      <dt className={cn("font-mono text-xs uppercase tracking-widest mb-1", labelColorClass)}>{`> ${label}`}</dt>
+      <dd className="flex items-center gap-2 text-cyber-white font-medium">
         {showStatusDot && (
           <span className="relative flex h-2.5 w-2.5 shrink-0" aria-hidden="true">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
@@ -20,7 +21,7 @@ const ProfileInfoCard = ({ label, value, labelColorClass, showStatusDot, classNa
           </span>
         )}
         {value}
-      </p>
+      </dd>
     </div>
   );
 }

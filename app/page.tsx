@@ -8,7 +8,7 @@ import Navigation from "@/components/ui/Navbar";
 
 export default function Home() {
   return (
-    <div className="">
+    <div className="relative bg-cyber-black min-h-screen">
       {/* NAVIGATION */}
       <Navigation />
       {/* HOME */}
